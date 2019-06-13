@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET Gallery page. */
 function renderGalleryPage(req, res, next) {
-  res.render('gallery', { title: 'Express' });
+  res.render('gallery', { title: 'Gallery' });
 };
 
 module.exports = {

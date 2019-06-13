@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET Create Account page. */
 function renderCreateAccountPage(req, res, next) {
-  res.render('createAccount', { title: 'Express' });
+  res.render('createAccount', { title: 'Create Account' });
 };
 
 module.exports = {
