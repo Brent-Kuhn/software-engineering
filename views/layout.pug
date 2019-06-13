@@ -1,7 +1,68 @@
-doctype html
-html
+<!DOCTYPE html>
+html(lang="en")
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    doctype html
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", type="text/css", href="css/materialize.css")
+    
+    script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(type="text/javascript", src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js")
+
+    script(type="text/javascript", src="js/materialize.js")
+    script(type="text/javascript", src="js/jquery.js")
+
+    script(src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js")
+    script(src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js")
+    script(src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js")
+    
+    meta(initial-scale=1.0, maximum-scale=1.0, user-scalable="no", width="device-width", name="viewport")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
   body
-    block content
+    div(class="section")
+      div(class="container-fluid") Text here
+
+    div(class="header")
+      nav(class="nav-wrapper")
+        div(class="container-fluid")
+          a(class="brand-logo" href="/") Text here
+          a(href="#" data-target="mobile-nav" class="sidenav-trigger")
+            i(class="material-icons") menu
+          ul(class="right hide-on-med-and-down")
+            li
+              a(href="/about") About
+            li
+              a(href="/gallery") Gallery
+            li
+              a(href="/events") Events
+            li
+              a(href="/login") Login
+            li
+              a(href="/createAccount") Create Account
+            li
+              a(href="/dashboard") Dashboard
+            li
+              a(href="/accountInfo") Account Info
+
+      ul(class="sidenav" id="mobile-nav")
+        li
+          a(href="/") Home
+        li
+          a(href="/about") About
+        li
+          a(href="/gallery") Gallery
+        li
+          a(href="/events") Events
+        li
+          a(href="/login") Login
+        li
+          a(href="/createAccount") Create Account
+        li
+          a(href="/dashboard") Dashboard
+        li
+          a(href="/accountInfo") Account Info
+
+      div(class="container" style="margin-top:25px")
+        block content
+        block extras
