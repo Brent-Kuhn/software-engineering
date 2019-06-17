@@ -25,4 +25,10 @@ router.get('/dashboard', dashboardController.renderDashboardPage);
 var accountInfoController = require('../controllers/accountInfo');
 router.get('/accountInfo', accountInfoController.renderAccountInfoPage);
 
+var roomsController = require('../controllers/roomsController');
+router.get('/rooms', roomsController.renderRoomsPage);
+
+var reservationsController = require('../controllers/reservationsController');
+router.get('/reservations', reservationsController.renderReservationsPage);
+
 module.exports = router;

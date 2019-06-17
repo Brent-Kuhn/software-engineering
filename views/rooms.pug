@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  -var rooms=[{number: '100', beds: '1', bedtype: 'Full', people: '1', handicap: 'yes', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '101', beds: '1', bedtype: 'Full', people: '1', handicap: 'yes', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '102', beds: '1', bedtype: 'Full', people: '1', handicap: 'yes', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '103', beds: '1', bedtype: 'Full', people: '2', handicap: 'yes', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '104', beds: '1', bedtype: 'Full', people: '2', handicap: 'yes', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '200', beds: '2', bedtype: 'Queen', people: '2', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '201', beds: '2', bedtype: 'Queen', people: '2', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '202', beds: '2', bedtype: 'Queen', people: '4', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '203', beds: '2', bedtype: 'Queen', people: '4', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '204', beds: '2', bedtype: 'Queen', people: '4', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '300', beds: '3', bedtype: 'King', people: '6', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '301', beds: '3', bedtype: 'King', people: '6', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '302', beds: '3', bedtype: 'King', people: '6', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '303', beds: '3', bedtype: 'King', people: '6', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}, {number: '304', beds: '3', bedtype: 'King', people: '6', handicap: 'no', checkedin: 'No', checkedout: 'No', maintStart: '', maintEnd: ''}]
+  table(class="highlight responsive-table")
+    thread
+      tr
+        th Room Number
+        th Beds
+        th Bed Type
+        th Sleeps
+        th Handicapped Access
+        th Checked In
+        th Checked Out
+        th Maintenance Start
+        th Maintenance End
+      each room in rooms
+        tr
+          th=room.number
+          th=room.beds
+          th=room.bedtype
+          th=room.people
+          th=room.handicap
+          th=room.checkedin
+          th=room.checkedout
+          th=room.maintStart
+          th=room.maintEnd

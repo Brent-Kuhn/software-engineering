@@ -1,0 +1,151 @@
+extends layout
+
+block content
+  div(class="row")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title" style="text-align:center") Guest Lookup
+          div(class="row")
+            div(class="input-field col s10 m10 l10")
+              input(placeholder="Email", id="email", type="text")
+            button(class="btn waves-effect waves-light", id="pay") Look Up
+                i(class="material-icons right") search
+          
+
+  div(class="row")
+
+    div(class="col s6 m6 l6")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title" style="text-align:center") Upcoming Reservations
+
+          div(class='row')
+            div(class="col s5 m5 l5")
+            <ul class="pagination">
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+          
+          form(action="/dashboard")
+            
+            div(class='row')
+              div(class="col s2 m2 l2")
+              div(class="datepicker col s8 m8 l8")
+                  input(placeholder="Check In Date", id="in-date", type="text")
+
+            div(class='row')
+              div(class="col s2 m2 l2")
+              div(class="datepicker col s8 m8 l8")
+                  input(placeholder="Check Out Date", id="out-date", type="text")
+
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="people" class="dropdown-content">
+                <li><a href="#!">One</a></li>
+                <li><a href="#!">Two</a></li>
+                <li><a href="#!">Three</a></li>
+                <li><a href="#!">Four</a></li>
+                <li><a href="#!">Five</a></li>
+                <li><a href="#!">Six</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="people">Number of People<i class="material-icons right">arrow_drop_down</i></a>
+            
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="bed" class="dropdown-content">
+                <li><a href="#!">Full</a></li>
+                <li><a href="#!">Queen</a></li>
+                <li><a href="#!">King</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="bed">Type of Beds<i class="material-icons right">arrow_drop_down</i></a>
+
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="handicapped" class="dropdown-content">
+                <li><a href="#!">Yes</a></li>
+                <li><a href="#!">No</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="handicapped">Handicapp Access?<i class="material-icons right">arrow_drop_down</i></a>
+            
+            div(class="row")
+              div(class="col s2 m2 l2")
+              button(class="btn waves-effect waves-light", id="update") Update
+                  i(class="material-icons right") arrow_upward
+            
+            div(class='row')
+            div(class='row')
+              div(class="col s4 m4 l4")
+              div(class="col s4 m4 l4")
+
+    div(class="col s6 m6 l6")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title" style="text-align:center") New Reservation
+          form(action="/dashboard")
+            
+            div(class='row')
+              div(class="col s2 m2 l2")
+              div(class="datepicker col s8 m8 l8")
+                  input(placeholder="Check In Date", id="in-date", type="text")
+
+            div(class='row')
+              div(class="col s2 m2 l2")
+              div(class="datepicker col s8 m8 l8")
+                  input(placeholder="Check Out Date", id="out-date", type="text")
+
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="people" class="dropdown-content">
+                <li><a href="#!">One</a></li>
+                <li><a href="#!">Two</a></li>
+                <li><a href="#!">Three</a></li>
+                <li><a href="#!">Four</a></li>
+                <li><a href="#!">Five</a></li>
+                <li><a href="#!">Six</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="people">Number of People<i class="material-icons right">arrow_drop_down</i></a>
+            
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="bed" class="dropdown-content">
+                <li><a href="#!">Full</a></li>
+                <li><a href="#!">Queen</a></li>
+                <li><a href="#!">King</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="bed">Type of Beds<i class="material-icons right">arrow_drop_down</i></a>
+
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="handicapped" class="dropdown-content">
+                <li><a href="#!">Yes</a></li>
+                <li><a href="#!">No</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="handicapped">Handicapp Access?<i class="material-icons right">arrow_drop_down</i></a>
+            
+            div(class='row')
+              div(class="col s2 m2 l2")
+              <ul id="payment" class="dropdown-content">
+                <li><a href="#!">Card</a></li>
+                <li><a href="#!">Defer</a></li>
+              </ul>
+              <a class="btn dropdown-trigger" href="#!" data-target="handicapped">Payment<i class="material-icons right">arrow_drop_down</i></a>
+            
+            div(class="row")
+              div(class="col s2 m2 l2")
+              button(class="btn waves-effect waves-light", id="update") Book
+                  i(class="material-icons right") book
+            
+            div(class='row')
+            div(class='row')
+              div(class="col s4 m4 l4")
+              div(class="col s4 m4 l4")
+
+block extras
+  script.
+    $(document).ready(function(){
+      $('.datepicker').datepicker();
+    });
+
+  script.
+    $(".dropdown-trigger").dropdown();
