@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  -var events = [{event: 'Cool event 1', date: 'Sun Jun 09, 2019', desc: 'Some cool stuff at noon!'}, {event: 'Cool event 2', date: 'Sun Jun 10, 2019', desc: 'Some cool stuff at noon!'}, {event: 'Cool event 3', date: 'Sun Jun 11, 2019', desc: 'Some cool stuff at noon!'}]
+  h3= title
+    ul
+      each event in events
+        div(class="card")
+          div(class='row')
+            div(class='col s6 m6 l6') 
+              H5=event.event
+            div(class='col s6 m6 l6' style="text-align:right") 
+              H6=event.date
+          div(class='row')
+            div(class='col s12 m12 l12') 
+              H6=event.desc

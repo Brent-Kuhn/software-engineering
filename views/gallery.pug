@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  <div class="carousel carousel-slider">
+    <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"></a>
+    <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"></a>
+    <a class="carousel-item" href="#three!"><img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"></a>
+    <a class="carousel-item" href="#four!"><img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"></a>
+  </div>
+
+block extras
+  script.
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true
+    });
