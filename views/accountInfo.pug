@@ -7,7 +7,6 @@ block content
       div(class="card")
         div(class="card-content")
           span(class="card-title" style="text-align:center") User Information
-          form(action="/accountInfo")
             
             div(class='row')
               div(class="col s2 m2 l2")
@@ -47,7 +46,6 @@ block content
       div(class="card")
         div(class="card-content")
           span(class="card-title" style="text-align:center") Saved Cards
-          form(action="/accountInfo")
             
             div(class='row')
               div(class="col s2 m2 l2")
@@ -79,6 +77,26 @@ block content
               div(class="col s4 m4 l4")
 
 block extras
+  script.
+    var user = firebase.auth().currentUser;
+    var name = user.displayName.split(' ')
+    document.getElementById("name").value = name[0];
+    document.getElementById("last").value = name[1];
+
+  script.
+    //Handle Account Status
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        var user = firebase.auth().currentUser;
+        var name = user.displayName.split(' ');
+        var email = user.email;
+        document.getElementById("name").value = name[0];
+        document.getElementById("last").value = name[1];
+        document.getElementById("email").value = email;
+      }
+    });
+
+
   script.
     $(document).ready(function(){
       $('.datepicker').datepicker();

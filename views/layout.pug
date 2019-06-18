@@ -15,6 +15,50 @@ html(lang="en")
     script(src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js")
     script(src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js")
     script(src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js")
+
+    script.
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDw6KdTWV3ml5mk1P25Vje1xrpI_j4Jo04",
+        authDomain: "hotel-d8d09.firebaseapp.com",
+        databaseURL: "https://hotel-d8d09.firebaseio.com",
+        projectId: "hotel-d8d09",
+        storageBucket: "hotel-d8d09.appspot.com",
+        messagingSenderId: "329461137503",
+        appId: "1:329461137503:web:8c63e5c7317f616a"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+    script.
+      firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+              // User is signed in.
+              //- var displayName = user.displayName;
+              //- var email = user.email;
+              //- var emailVerified = user.emailVerified;
+              //- var photoURL = user.photoURL;
+              //- var isAnonymous = user.isAnonymous;
+              var uid = user.uid;
+              //- var providerData = user.providerData;
+              var date = new Date();
+              document.getElementById("login").style.display="none";
+              document.getElementById("createAccount").style.display="none";
+              document.getElementById("rooms").style.display="none";
+              document.getElementById("reservations").style.display="none";
+              document.getElementById("dashboard").style.display="block";
+              document.getElementById("accountInfo").style.display="block";
+              document.getElementById("timeStamp").value=date.getTime();
+          } else {
+              // User is signed out.
+              document.getElementById("accountInfo").style.display="none";
+              document.getElementById("dashboard").style.display="none";
+              document.getElementById("rooms").style.display="none";
+              document.getElementById("reservations").style.display="none";
+              document.getElementById("createAccount").style.display="block";
+              document.getElementById("login").style.display="block";
+          }
+      });
     
     meta(initial-scale=1.0, maximum-scale=1.0, user-scalable="no", width="device-width", name="viewport")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -31,23 +75,23 @@ html(lang="en")
             i(class="material-icons") menu
           ul(class="right hide-on-med-and-down")
             li
-              a(href="/about") About
+              a(href="/about" id='about') About
             li
-              a(href="/gallery") Gallery
+              a(href="/gallery" id="gallery") Gallery
             li
-              a(href="/events") Events
+              a(href="/events" id="events") Events
             li
-              a(href="/login") Login
+              a(href="/login" id="login") Login
             li
-              a(href="/createAccount") Create Account
+              a(href="/createAccount" id="createAccount") Create Account
             li
-              a(href="/dashboard") Dashboard
+              a(href="/dashboard" id="dashboard") Dashboard
             li
-              a(href="/accountInfo") Account Info
+              a(href="/accountInfo" id="accountInfo") Account Info
             li
-              a(href="/rooms") Rooms
+              a(href="/rooms" id="rooms") Rooms
             li
-              a(href="/reservations") Reservations
+              a(href="/reservations" id="reservations") Reservations
 
       ul(class="sidenav" id="mobile-nav")
         li

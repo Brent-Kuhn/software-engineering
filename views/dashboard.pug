@@ -138,8 +138,35 @@ block content
             div(class='row')
               div(class="col s4 m4 l4")
               div(class="col s4 m4 l4")
+  
+  div(class="row")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title" style="text-align:center") Sign Out 
+            button(class="btn waves-effect waves-light", id="sign-out")
+                i(class="material-icons right") check
 
 block extras
+  script.
+        document.getElementById("sign-out").addEventListener("click", function() {
+            firebase.auth().signOut().then(function() {
+                // Sign-out successful.
+                alert("Signed Out");
+                location.reload();
+            }).catch(function(error) {
+                // An error happened.
+                alert("Something went wrong with Sign-out " + error);
+            });
+        })
+
+  script.
+      //Handle Account Status
+      firebase.auth().onAuthStateChanged(user => {
+        if(!user) {
+          window.location = '/login';
+        }
+      });
+
   script.
     $(document).ready(function(){
       $('.datepicker').datepicker();

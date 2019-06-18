@@ -7,28 +7,54 @@ block content
       div(class="card")
         div(class="card-content")
           span(class="card-title" style="text-align:center") Login
-          form(action="/dashboard")
+          //form(action="/dashboard")
             
-            div(class='row')
-              div(class="col s2 m2 l2")
-              div(class="input-field col s8 m8 l8")
-                  input(placeholder="Email", id="email", type="text")
-            
-            div(class='row')
-              div(class="col s2 m2 l2")
-              div(class="input-field col s8 m8 l8")
-                  input(placeholder="Password", id="password", type="password")
+          div(class='row')
+            div(class="col s2 m2 l2")
+            div(class="input-field col s8 m8 l8")
+                input(placeholder="Email", id="email", type="text")
+          
+          div(class='row')
+            div(class="col s2 m2 l2")
+            div(class="input-field col s8 m8 l8")
+                input(placeholder="Password", id="password", type="password")
 
+          div(class="col s4 m4 l4")
+          button(class="btn waves-effect waves-light", id="sign-in") Sign In
+              i(class="material-icons right") check
+          
+          div(class='row')
+          div(class='row')
             div(class="col s4 m4 l4")
-            button(class="btn waves-effect waves-light", id="sign-in") Sign In
-                i(class="material-icons right") check
-            
-            div(class='row')
-            div(class='row')
-              div(class="col s4 m4 l4")
-              div(class="col s4 m4 l4")
-                <label>
-                  <input type="checkbox" />
-                  <span>Remember Me</span>
-                </label>
+            div(class="col s4 m4 l4")
+              <label>
+                <input type="checkbox" />
+                <span>Remember Me</span>
+              </label>
+
+  block extras
+    script.
+        document.getElementById("sign-in").addEventListener("click", function() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            if(!email || !password) {
+                alert("Email and password required");
+            } else {
+                firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ...
+                    alert(errorMessage);
+                });
+            }
+        })
+
+    script.
+      //Handle Account Status
+      firebase.auth().onAuthStateChanged(user => {
+        if(user) {
+          window.location = '/dashboard';
+        }
+      });
 
