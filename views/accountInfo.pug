@@ -34,7 +34,7 @@ block content
                   input(placeholder="Password", id="password", type="password")
 
             div(class="col s4 m4 l4")
-            button(class="btn waves-effect waves-light", id="sign-in") Update
+            button(class="btn waves-effect waves-light", id="update") Update
                 i(class="material-icons right") arrow_upward
             
             div(class='row')
@@ -96,6 +96,20 @@ block extras
       }
     });
 
+  script.
+    //Update account information
+    document.getElementById("update").addEventListener("click", function() {
+      var user = firebase.auth().currentUser;
+      var first = document.getElementById("name").value;
+      var last = document.getElementById("last").value;
+      var name = first + ' ' + last;
+      if(user) {
+        user.updateProfile({
+          displayName: name
+        })
+        window.location = '/accountInfo';
+      }
+    })
 
   script.
     $(document).ready(function(){
